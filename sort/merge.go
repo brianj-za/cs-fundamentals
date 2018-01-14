@@ -7,15 +7,15 @@ import (
 
 func Merge(arr []int) []int {
 	defer timeTrack(time.Now(), "Merge Sort")
-	return splitAndMerge(arr)
+	return splitAndMergeM(arr)
 }
 
-func splitAndMerge(arr []int) []int {
+func splitAndMergeM(arr []int) []int {
 	if len(arr) < 2 {
 		return arr
 	}
 	middle := len(arr) / 2
-	return merge(splitAndMerge(arr[:middle]), splitAndMerge(arr[middle:]))
+	return merge(splitAndMergeM(arr[:middle]), splitAndMergeM(arr[middle:]))
 }
 
 func merge(arrLeft []int, arrRight []int) []int {
